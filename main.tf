@@ -42,3 +42,24 @@ module "vm" {
   }
 }
 
+
+
+module "vm2" {
+  source = "./modules/vm"
+  overall = {
+    region = "east us"
+    name   = "newtest"
+    size   = "Standard_DS1_v2"
+    os_details = {
+      publisher = "Canonical"
+      offer     = "UbuntuServer"
+      sku       = "18.04-LTS"
+      version   = "Latest"
+    }
+    password = "Pass!word@"
+    username = "azureadmin"
+    env      = "dev"
+    count    = 1
+    os_type  = "linux" # windows
+  }
+}
