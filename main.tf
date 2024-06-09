@@ -29,16 +29,16 @@ module "vm" {
     name   = "test"
     size   = "Standard_DS1_v2"
     os_details = {
-      publisher = "Canonical" 
+      publisher = "Canonical"
       offer     = "UbuntuServer"
       sku       = "18.04-LTS"
       version   = "Latest"
     }
     password = "Pass!word@"
     username = "azureadmin"
-    env = "dev"
-    count = 1
-    os_type = "linux"  # windows
+    env      = "dev"
+    count    = 1
+    os_type  = "linux" # windows
   }
 }
 # code for vm creation
