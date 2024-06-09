@@ -41,4 +41,4 @@ module "vm" {
     os_type  = "linux" # windows
   }
 }
-# code for vm creation
+
