@@ -1,9 +1,9 @@
 variable "rg_name" {
-  type = string
+  type    = string
   default = "myrg"
 }
 variable "rg_region" {
-  type = string
+  type    = string
   default = "westus"
 }
 variable "my-tags" {
