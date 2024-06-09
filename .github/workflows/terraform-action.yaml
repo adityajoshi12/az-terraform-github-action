@@ -20,7 +20,7 @@ env:
  TF_VAR_subscription_id: ${{ secrets.TF_VAR_SUBSCRIPTION_ID }}
  TF_VAR_tenant_id: ${{ secrets.TF_VAR_TENANT_ID }}
 
- 
+permissions: write-all
 jobs:
  terraform:
    name: "Terraform Infrastructure Change Management"
@@ -63,7 +63,8 @@ jobs:
        run: terraform plan -no-color -input=false
        continue-on-error: true
     
-     - uses: actions/github-script@v6
+     - name: Plan details comment
+       uses: actions/github-script@v6
        if: github.event_name == 'pull_request'
        env:
          PLAN: "terraform\n${{ steps.plan.outputs.stdout }}"

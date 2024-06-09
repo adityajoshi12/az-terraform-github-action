@@ -22,8 +22,23 @@ provider "azurerm" {
   tenant_id       = var.tenant_id
 }
 
-resource "azurerm_resource_group" "my-rg" {
-  name     = var.rg_name
-  location = var.rg_region
-  tags     = var.my-tags
+module "vm" {
+  source = "./modules/vm"
+  overall = {
+    region = "west us"
+    name   = "test"
+    size   = "Standard_DS1_v2"
+    os_details = {
+      publisher = "Canonical"
+      offer     = "UbuntuServer"
+      sku       = "18.04-LTS"
+      version   = "Latest"
+    }
+    password = "Pass!word@"
+    username = "azureadmin"
+    env      = "dev"
+    count    = 1
+    os_type  = "linux" # windows
+  }
 }
+
